@@ -1,0 +1,48 @@
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: flotte-api
+
+    ports:
+      - "3000:3000"
+
+    env_file:
+      - .env
+
+    depends_on:
+      - mongodb
+
+    networks:
+      - flotte-network
+
+  mongodb:
+    image: mongo:latest
+
+    container_name: flotte-mongodb
+
+    restart: unless-stopped
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: flotte
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - mongodb_data:/data/db
+
+    networks:
+      - flotte-network
+
+networks:
+  flotte-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:

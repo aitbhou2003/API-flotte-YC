@@ -4,19 +4,29 @@ const { generateToken, verefyToken } = require("../utils/token");
 
 exports.store = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, role } =
-      req.body;
+    // console.log(req.body); return;
+    const { firstName, lastName, email, password, role } = req.body;    
+    
 
-    const encryptPass = hashPass(password);
-    await User.create({
+    const encryptPass = await hashPass(password);
+    
+    const user = await User.create({
       firstName,
       lastName,
       email,
       password:encryptPass,
       role,
     })
+
+    const token = generateToken(user._id, user.role);
+
+    res.status(201).json({
+      success :true,
+      message : "user created with succes",
+      token : token
+    })
   } catch (error) {
-    console.log(error);
+    console.log("store user error : "+error);
   }
 };
 

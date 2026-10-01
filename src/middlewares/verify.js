@@ -4,8 +4,8 @@ const verify = require('../utils/token')
 
 exports.verifyToken = (req,res,next)=>{
     try {
-        var token = req.header.authorization
-        console.log(token)
+        var token = req.headers.authorization
+        // console.log(token)
         if (token=== undefined){
             return res.json("token not exist")
         }
@@ -40,9 +40,12 @@ exports.isChauffeur = (req,res,next)=>{
 
 exports.isAdmin = (req,res,next)=>{
     try{
-        console.log(req.user)
-        const {role} = req.user
-        if(role === "admin"){
+        // console.log(req.user.userRole); 
+        // const {role} = req.user.userRole
+
+        // console.log(role);return;
+        
+        if(req.user.userRole==="admin"){
             next()
         }else {
             res.json({

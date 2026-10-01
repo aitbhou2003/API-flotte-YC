@@ -23,3 +23,21 @@ exports.verifyToken = (req,res,next)=>{
     }
 }
 
+exports.isChauffeur = (req,res,next)=>{
+    try{
+        console.log(req.user)
+        const {role} = req.user
+        if(role === "chauffeur"){
+            next()
+        }else {
+            res.json({message:"not authorized user"})
+        }
+    }catch (e){
+        console.log(e)
+    }
+}
+
+
+
+
+

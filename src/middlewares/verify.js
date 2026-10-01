@@ -38,6 +38,23 @@ exports.isChauffeur = (req,res,next)=>{
 }
 
 
+exports.isAdmin = (req,res,next)=>{
+    try{
+        console.log(req.user)
+        const {role} = req.user
+        if(role === "admin"){
+            next()
+        }else {
+            res.json({
+                message : "not authorized user"
+            })
+        }
+    }catch (e){
+        console.log(e)
+    }
+}
+
+
 
 
 

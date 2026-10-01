@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-const { hashPass, comparPass } = requir("../utils/password");
+const { hashPass, comparePass } = require("../utils/password");
 const { generateToken, verefyToken } = require("../utils/token");
 
 exports.store = async (req, res) => {
@@ -22,21 +22,23 @@ exports.store = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-    const { user_email, user_password } = req.body;
-    const user = await User.findOne({ email: user_email });
-    console.log(user);
+    const { email, password } = req.body;
+    // console.log(email);
+    const user = await User.findOne({ email: email });
+    console.log(user._id);
     if (!user) {
-      res.json("user not found");
+      res.status(404).json("user not found");
     }
-    const matchPass = await comparPass(user_password, user.password);
+    const matchPass = await comparePass(password, user.password);
     if (!matchPass) {
-      res.json("pasword not match");
+      res.status(404).json("pasword not match");
     }
-    const token = generateToken(user.id, user.role);
+    const token = generateToken(user._id, user.role);
 
-    res.header("token", token).json({
+    res.status(201).header("token", token).json({
       success: true,
       login: "login succesfully",
+      token : token
     });
   } catch (error) {
     console.log(error);

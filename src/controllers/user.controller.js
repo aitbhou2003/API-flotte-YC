@@ -2,13 +2,10 @@ const User = require("../models/user.model");
 const { hashPass, comparPass } = requir("../utils/password");
 const { generateToken, verefyToken } = require("../utils/token");
 
-exports.ragister = async (req, res) => {
+exports.store = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, passwordVerification, role } =
+    const { firstName, lastName, email, password, role } =
       req.body;
-    if (password !== passwordVerification) {
-      res.json("passwords not match");
-    }
 
     const encryptPass = hashPass(password);
     await User.create({
@@ -38,7 +35,7 @@ exports.login = async (req, res) => {
     const token = generateToken(user.id, user.role);
 
     res.header("token", token).json({
-      succes: true,
+      success: true,
       login: "login succesfully",
     });
   } catch (error) {

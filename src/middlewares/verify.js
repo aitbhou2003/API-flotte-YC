@@ -14,7 +14,7 @@ exports.verifyToken = (req,res,next)=>{
         if (!token){
             return res.json('token not found')
         }
-        const verifyToken = verify.verefyToken(token)
+        const verifyToken = verify.verifyToken(token)
         req.user = verifyToken
         next()
     } catch (error) {

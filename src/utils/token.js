@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-require("dotenv").config;
+require("dotenv").config();
 
 const generateToken = (userId,userRole) => {
   const token = jwt.sign(
@@ -13,6 +13,8 @@ const generateToken = (userId,userRole) => {
       expiresIn: "1h",
     },
   );
+
+  return token
 
 //   res.cookie("jwt", token, {
 //     maxAge: 15 * 24 * 60 * 60 * 1000,
@@ -29,5 +31,5 @@ const verifyToken = (token)=>{
 
 module.exports ={
     generateToken,
-    verefyToken
+    verifyToken
 }

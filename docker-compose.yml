@@ -16,6 +16,11 @@ services:
     depends_on:
       - mongodb
 
+    volumes:
+      - .:/usr/src/app
+
+    command: npm run dev
+
     networks:
       - flotte-network
 

@@ -10,23 +10,14 @@ exports.ragister = async (req, res) => {
       res.json("passwords not match");
     }
 
-    const ecryptPass = hashPass(password);
+    const encryptPass = hashPass(password);
     await User.create({
       firstName,
       lastName,
       email,
-      password,
+      password:encryptPass,
       role,
     })
-      .then((user) => {
-        res.status(201).json({
-          succes: true,
-          message: "registration success",
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
   } catch (error) {
     console.log(error);
   }

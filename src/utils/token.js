@@ -22,9 +22,8 @@ const generateToken = (userId,userRole) => {
 //   });
 };
 
-const verefyToken = (token)=>{
-    const userId = jwt.verify(token,process.env.JWT_SECRET)
-    return userId
+const verifyToken = (token)=>{
+    return jwt.verify(token, process.env.JWT_SECRET)
 }
 
 

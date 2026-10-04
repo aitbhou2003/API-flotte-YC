@@ -5,3 +5,9 @@ exports.createTruck = async (data)=>{
 
     return truck
 }
+
+exports.getAllTrucks = async()=>{
+    const truks = Truck.find();
+    return truks
+}
+

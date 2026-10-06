@@ -10,12 +10,14 @@ const app = express();
 // 3. Middlewares globaux
 app.use(express.json()); // Pour que l'API comprenne le format JSON dans les requêtes
 const userRouter = require('./src/routes/user.router')
+const truckRouter = require("./src/routes/truck.router");
 
 app.use(cors()); // Pour autoriser les requêtes cross-origin
 
 // 4. Connexion à la base de données
 connectDB();
 app.use("/api",userRouter.router)
+app.use("/api", truckRouter.router);
 
 const PORT = process.env.PORT || 5000;
 

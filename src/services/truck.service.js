@@ -1,26 +1,26 @@
 const Truck = require("../models/truck.model");
 
 exports.createTruck = async (data) => {
-  const truck = await Truck.create(data);
-
-  return truck;
+  return await Truck.create(data);
 };
 
 exports.getAllTrucks = async () => {
-  const truks = Truck.find();
-  return truks;
+  return await Truck.find();
 };
 
 exports.getTruckById = async (id) => {
-  const truck = Truck.find(id);
-  return truck;
+  return await Truck.findById(id);
 };
 
 exports.updateTruck = async (id, data) => {
-  return await Truck.findByIdAndUpdate(id, data, {
-    new: true,
-    runValidators: true,
-  });
+  return await Truck.findByIdAndUpdate(
+    id,
+    data,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 };
 
 exports.deleteTruck = async (id) => {

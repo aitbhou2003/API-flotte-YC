@@ -47,7 +47,6 @@ exports.index = async (req, res) => {
 exports.show = async (req, res) => {
   try {
     const truck = await truckService.getTruckById(req.params.id);
-
     if (!truck) {
       return res.status(404).json({
         success: false,

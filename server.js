@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json()); // Pour que l'API comprenne le format JSON dans les requêtes
 const userRouter = require('./src/routes/user.router')
 const truckRouter = require("./src/routes/truck.router");
+const remorqueRouter = require("./src/routes/remorque.router");
 
 app.use(cors()); // Pour autoriser les requêtes cross-origin
 
@@ -18,6 +19,7 @@ app.use(cors()); // Pour autoriser les requêtes cross-origin
 connectDB();
 app.use("/api",userRouter.router)
 app.use("/api", truckRouter.router);
+app.use("/api", remorqueRouter.router);
 
 const PORT = process.env.PORT || 5000;
 

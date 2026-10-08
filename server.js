@@ -14,6 +14,8 @@ const truckRouter = require("./src/routes/truck.router");
 const remorqueRouter = require("./src/routes/remorque.router");
 const tireRouter = require("./src/routes/tire.router");
 const maintenanceRuleRouter = require("./src/routes/maintenanceRule.router");
+const maintenanceRouter = require("./src/routes/maintenance.router");
+
 
 app.use(cors()); // Pour autoriser les requêtes cross-origin
 
@@ -24,6 +26,8 @@ app.use("/api", truckRouter.router);
 app.use("/api", remorqueRouter.router);
 app.use("/api", tireRouter.router);
 app.use("/api", maintenanceRuleRouter.router);
+app.use("/api", maintenanceRouter.router);
+
 
 const PORT = process.env.PORT || 5000;
 

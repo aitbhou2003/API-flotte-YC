@@ -47,4 +47,11 @@ router.delete(
   Maintenance.destroy
 );
 
+router.get(
+  "/maintenances/check-truck/:truckId",
+  verify.verifyToken,
+  verify.isAdmin,
+  Maintenance.checkTruckMaintenance
+);
+
 module.exports = { router };

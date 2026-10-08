@@ -120,3 +120,30 @@ exports.destroy = async (req, res) => {
     });
   }
 };
+
+
+exports.checkTruckMaintenance = async (req, res) => {
+  try {
+    const result =
+      await maintenanceService.checkTruckMaintenance(req.params.truckId);
+
+    res.status(200).json({
+      success: true,
+      ...result,
+    });
+  } catch (error) {
+    console.log("check truck maintenance error:", error);
+
+    if (error.statusCode === 404) {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
+
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};

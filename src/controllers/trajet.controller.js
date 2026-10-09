@@ -122,3 +122,76 @@ exports.destroy = async (req, res) => {
     });
   }
 };
+
+exports.mesTrajets = async (req, res) => {
+  try {
+    const trajets = await trajetService.getTrajetsByChauffeur(
+      req.user.userId
+    );
+
+    return res.status(200).json({
+      success: true,
+      trajets,
+    });
+  } catch (error) {
+    console.error("mes trajets error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+
+exports.demarrer = async (req, res) => {
+  try {
+    const trajet = await trajetService.demarrerTrajet(
+      req.params.id,
+      req.user.userId,
+      req.body.kilometrageDepart
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Trajet démarré avec succès",
+      trajet,
+    });
+  } catch (error) {
+    console.error("demarrer trajet error:", error);
+
+    return res.status(error.statusCode || 500).json({
+      success: false,
+      message: error.statusCode
+        ? error.message
+        : "Internal server error",
+    });
+  }
+};
+
+
+exports.terminer = async (req, res) => {
+  try {
+    const resultat = await trajetService.terminerTrajet(
+      req.params.id,
+      req.user.userId,
+      req.body
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Trajet terminé avec succès",
+      ...resultat,
+    });
+  } catch (error) {
+    console.error("terminer trajet error:", error);
+
+    return res.status(error.statusCode || 500).json({
+      success: false,
+      message: error.statusCode
+        ? error.message
+        : "Internal server error",
+    });
+  }
+};
+

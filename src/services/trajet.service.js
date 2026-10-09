@@ -1,6 +1,8 @@
 const Trajet = require("../models/trajet.model");
+const availabilityService = require("./availability.service");
 
 exports.createTrajet = async (data) => {
+  await availabilityService.checkAvailability(data);
   return await Trajet.create(data);
 };
 

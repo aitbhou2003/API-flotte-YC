@@ -12,6 +12,13 @@ exports.store = async (req, res) => {
   } catch (error) {
     console.log("create trajet error:", error);
 
+    if (error.statusCode === 404 || error.statusCode === 409) {
+      return res.status(error.statusCode).json({
+        success: false,
+        message: error.message,
+      });
+    }
+
     res.status(500).json({
       success: false,
       message: "Internal server error",

@@ -25,9 +25,9 @@ exports.verifyToken = (req,res,next)=>{
 
 exports.isChauffeur = (req,res,next)=>{
     try{
-        console.log(req.user)
-        const {role} = req.user
-        if(role === "chauffeur"){
+        // console.log(req.user)
+        // const {role} = req.user
+        if(req.user.userRole === "chauffeur"){
             next()
         }else {
             res.json({message:"not authorized user"})

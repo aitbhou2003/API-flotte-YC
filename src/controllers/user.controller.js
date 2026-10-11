@@ -35,22 +35,42 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
     // console.log(email);
     const user = await User.findOne({ email: email });
-    console.log(user._id);
+    // console.log(user._id);
     if (!user) {
-      res.status(404).json("user not found");
+      return res.status(404).json({
+        success: false,
+        message: "Invalid email or password",
+      });
     }
+
+    if (user.statue === "suspendu") {
+      return res.status(403).json({
+        success: false,
+        message: "Your account has been suspended",
+      });
+    }
+
     const matchPass = await comparePass(password, user.password);
     if (!matchPass) {
-      res.status(404).json("pasword not match");
+      return res.status(404).json({
+        success: false,
+        message: "Invalid email or password",
+
+      });
     }
     const token = generateToken(user._id, user.role);
 
-    res.status(201).header("token", token).json({
+    return res.status(200).json({
       success: true,
       login: "login succesfully",
       token : token
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+
   }
 };

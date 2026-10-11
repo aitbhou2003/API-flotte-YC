@@ -44,6 +44,10 @@ exports.checkAvailability = async (data, excludeTrajetId = null) => {
   if (driver.role !== "chauffeur") {
     conflict("The assigned user is not a driver");
   }
+  if (driver.statue === "suspendu") {
+  conflict("A suspended driver cannot be assigned to a trip");
+}
+
 
   const start = new Date(dateDebutPrevue);
   const end = new Date(dateFinPrevue);

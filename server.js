@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./src/config/db');
+const { setupSwagger } = require('./src/config/swagger');
 // 2. Initialiser l'application Express
 const app = express();
 
@@ -20,6 +21,9 @@ const trajetRouter = require("./src/routes/trajet.router");
 
 
 app.use(cors()); // Pour autoriser les requêtes cross-origin
+
+// Swagger Documentation
+setupSwagger(app);
 
 // 4. Connexion à la base de données
 connectDB();

@@ -1,0 +1,279 @@
+<mxfile host="65bd71144e">
+    <diagram id="class-diagram-flotte-v3" name="Diagramme de Classes - Modeles">
+        <mxGraphModel dx="719" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="cls_user" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="User" vertex="1">
+                    <mxGeometry height="226" width="300" x="40" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="u1" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="u2" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ firstName : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="u3" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ lastName : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="u4" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ email : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="u5" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ password : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="u6" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ role : enum(&quot;admin&quot;,&quot;chauffeur&quot;)" vertex="1">
+                    <mxGeometry height="28" width="300" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="u7" parent="cls_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ statue : enum(&quot;actif&quot;,&quot;suspendu&quot;)" vertex="1">
+                    <mxGeometry height="28" width="300" y="198" as="geometry"/>
+                </mxCell>
+                <mxCell id="cls_truck" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="Truck" vertex="1">
+                    <mxGeometry height="170" width="340" x="440" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr1" parent="cls_truck" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr2" parent="cls_truck" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ immatriculation : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr3" parent="cls_truck" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ marque : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr4" parent="cls_truck" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ kilometrageTotal : Number" vertex="1">
+                    <mxGeometry height="28" width="340" y="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr5" parent="cls_truck" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ statut : enum(&quot;disponible&quot;,&quot;en_trajet&quot;,&quot;en_maintenance&quot;)" vertex="1">
+                    <mxGeometry height="28" width="340" y="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="cls_remorque" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="Remorque" vertex="1">
+                    <mxGeometry height="170" width="340" x="880" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="rem1" parent="cls_remorque" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="rem2" parent="cls_remorque" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ immatriculation : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="rem3" parent="cls_remorque" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ type : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="rem4" parent="cls_remorque" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ kilometrageTotal : Number" vertex="1">
+                    <mxGeometry height="28" width="340" y="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="rem5" parent="cls_remorque" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ statut : enum(&quot;disponible&quot;,&quot;en_trajet&quot;,&quot;en_maintenance&quot;)" vertex="1">
+                    <mxGeometry height="28" width="340" y="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="cls_tire" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="Tire" vertex="1">
+                    <mxGeometry height="114" width="300" x="440" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ti1" parent="cls_tire" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="ti2" parent="cls_tire" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ position : String" vertex="1">
+                    <mxGeometry height="28" width="300" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="ti3" parent="cls_tire" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ kilometrageUsure : Number" vertex="1">
+                    <mxGeometry height="28" width="300" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="cls_maintrule" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="MaintenanceRule" vertex="1">
+                    <mxGeometry height="142" width="340" x="880" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="mr1" parent="cls_maintrule" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="mr2" parent="cls_maintrule" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ type : enum(&quot;vidange&quot;,&quot;revision&quot;,&quot;changement_pneu&quot;)" vertex="1">
+                    <mxGeometry height="28" width="340" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="mr3" parent="cls_maintrule" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ periodiciteKm : Number" vertex="1">
+                    <mxGeometry height="28" width="340" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="mr4" parent="cls_maintrule" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ description : String" vertex="1">
+                    <mxGeometry height="28" width="340" y="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="cls_maintenance" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="Maintenance" vertex="1">
+                    <mxGeometry height="226" width="380" x="580" y="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="m1" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="380" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="m2" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ type : enum(&quot;vidange&quot;,&quot;revision&quot;,&quot;changement_pneu&quot;)" vertex="1">
+                    <mxGeometry height="28" width="380" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="m3" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ statut : enum(&quot;alerte_declenchee&quot;,&quot;resolue&quot;)" vertex="1">
+                    <mxGeometry height="28" width="380" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="m4" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ kilometrageAuDeclenchement : Number" vertex="1">
+                    <mxGeometry height="28" width="380" y="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="m5" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ dateDeclenchement : Date" vertex="1">
+                    <mxGeometry height="28" width="380" y="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="m6" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ dateResolution : Date" vertex="1">
+                    <mxGeometry height="28" width="380" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="m7" parent="cls_maintenance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ timestamps : Date" vertex="1">
+                    <mxGeometry height="28" width="380" y="198" as="geometry"/>
+                </mxCell>
+                <mxCell id="cls_trajet" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;" value="Trajet" vertex="1">
+                    <mxGeometry height="422" width="330" x="40" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj1" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id : String" vertex="1">
+                    <mxGeometry height="28" width="330" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj2" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ siteDepart : String" vertex="1">
+                    <mxGeometry height="28" width="330" y="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj3" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ siteArrivee : String" vertex="1">
+                    <mxGeometry height="28" width="330" y="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj4" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ marchandise : String" vertex="1">
+                    <mxGeometry height="28" width="330" y="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj5" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ dateDebutPrevue : Date" vertex="1">
+                    <mxGeometry height="28" width="330" y="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj6" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ dateFinPrevue : Date" vertex="1">
+                    <mxGeometry height="28" width="330" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj7" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ statut : enum(&quot;a_faire&quot;,&quot;en_cours&quot;,&quot;termine&quot;)" vertex="1">
+                    <mxGeometry height="28" width="330" y="198" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj8" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ kilometrageDepart : Number" vertex="1">
+                    <mxGeometry height="28" width="330" y="226" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj9" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ kilometrageArrivee : Number" vertex="1">
+                    <mxGeometry height="28" width="330" y="254" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj10" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ volumeGasoil : Number" vertex="1">
+                    <mxGeometry height="28" width="330" y="282" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj11" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ coutGasoil : Number" vertex="1">
+                    <mxGeometry height="28" width="330" y="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj12" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ remarquesVehicule : String" vertex="1">
+                    <mxGeometry height="28" width="330" y="338" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj13" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ timestamps : Date" vertex="1">
+                    <mxGeometry height="28" width="330" y="366" as="geometry"/>
+                </mxCell>
+                <mxCell id="tj14" parent="cls_trajet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ createdAt : Date" vertex="1">
+                    <mxGeometry height="28" width="330" y="394" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_truck_tire" edge="1" parent="1" source="cls_truck" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="cls_tire" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_truck_tire_src" connectable="0" parent="rel_truck_tire" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.7496" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_truck_tire_tgt" connectable="0" parent="rel_truck_tire" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7531" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_truck_maint" edge="1" parent="1" source="tr2" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;entryX=0.659;entryY=0.019;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls_maintenance" value="">
+                    <mxGeometry relative="1" x="0.2885" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="820" y="110"/>
+                        </Array>
+                        <mxPoint x="830" y="560" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_truck_maint_src" connectable="0" parent="rel_truck_maint" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.7701" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_truck_maint_tgt" connectable="0" parent="rel_truck_maint" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7841" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_remorque_maint" edge="1" parent="1" source="cls_remorque" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;endFill=0;" target="cls_maintenance" value="">
+                    <mxGeometry relative="1" x="0.0004" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_rem_maint_src" connectable="0" parent="rel_remorque_maint" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.7992" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_rem_maint_tgt" connectable="0" parent="rel_remorque_maint" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7999" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_tire_maint" edge="1" parent="1" source="cls_tire" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="cls_maintenance" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_tire_maint_src" connectable="0" parent="rel_tire_maint" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.7486" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_tire_maint_tgt" connectable="0" parent="rel_tire_maint" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7464" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_maintrule_maint" edge="1" parent="1" source="mr4" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0.963;exitY=1.021;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;endFill=0;exitPerimeter=0;" target="cls_maintenance" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_rule_maint_src" connectable="0" parent="rel_maintrule_maint" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.7973" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_rule_maint_tgt" connectable="0" parent="rel_maintrule_maint" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7973" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_user_trajet" edge="1" parent="1" source="cls_user" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="cls_trajet" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_user_trajet_src" connectable="0" parent="rel_user_trajet" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.7565" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_user_trajet_tgt" connectable="0" parent="rel_user_trajet" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7568" as="geometry">
+                        <mxPoint y="-23" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_truck_trajet" edge="1" parent="1" source="cls_truck" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;endFill=0;" target="cls_trajet" value="">
+                    <mxGeometry relative="1" x="0.0022" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_truck_trajet_src" connectable="0" parent="rel_truck_trajet" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.8004" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_truck_trajet_tgt" connectable="0" parent="rel_truck_trajet" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.8004" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rel_remorque_trajet" edge="1" parent="1" source="cls_remorque" style="endArrow=none;endSize=10;startArrow=none;html=1;strokeColor=#000000;strokeWidth=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.998;entryY=-0.106;entryDx=0;entryDy=0;endFill=0;entryPerimeter=0;" target="tj5" value="">
+                    <mxGeometry relative="1" x="-0.0049" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="770" y="500"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_rem_trajet_src" connectable="0" parent="rel_remorque_trajet" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" value="1" vertex="1">
+                    <mxGeometry relative="1" x="-0.798" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lbl_rem_trajet_tgt" connectable="0" parent="rel_remorque_trajet" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" value="0..*" vertex="1">
+                    <mxGeometry relative="1" x="0.7992" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

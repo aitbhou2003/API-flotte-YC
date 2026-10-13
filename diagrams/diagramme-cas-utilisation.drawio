@@ -1,0 +1,227 @@
+<mxfile host="65bd71144e">
+    <diagram id="use-case-diagram-flotte" name="Diagramme de Cas d&#39;Utilisation">
+        <mxGraphModel dx="1130" dy="1836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="sys_boundary" parent="1" style="swimlane;startSize=35;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=14;whiteSpace=wrap;html=1;collapsible=0;" value="API Gestion de Flotte" vertex="1">
+                    <mxGeometry height="1610" width="1280" x="300" y="-10" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_Ressources" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=0" value="Gérer les ressources&lt;br&gt;(Camions, Remorques, Pneus)" vertex="1">
+                    <mxGeometry height="65" width="270" x="80" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-13" edge="1" parent="sys_boundary" source="UC_Assigner" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" x="0.0011" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="949.8" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-18" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.4933" y="-1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="UC_Assigner" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Créer et assigner&lt;br&gt;des trajets" vertex="1">
+                    <mxGeometry height="65" width="270" x="80" y="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-14" edge="1" parent="sys_boundary" source="UC_Regles" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="215" y="420"/>
+                            <mxPoint x="1070" y="420"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-19" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.3384" y="-1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="UC_Regles" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Configurer les règles&lt;br&gt;de maintenance" vertex="1">
+                    <mxGeometry height="65" width="270" x="80" y="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-15" edge="1" parent="sys_boundary" source="UC_Comptes" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" x="0.0007" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="215" y="580"/>
+                            <mxPoint x="625" y="580"/>
+                            <mxPoint x="625" y="628"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-20" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.0427" y="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="UC_Comptes" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Gérer les comptes chauffeurs" vertex="1">
+                    <mxGeometry height="65" width="270" x="80" y="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_Rapports" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Consulter les rapports&lt;br&gt;(Conso, Km, Alertes)" vertex="1">
+                    <mxGeometry height="65" width="270" x="90" y="590" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-22" edge="1" parent="sys_boundary" source="UC_VoirTrajets" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-27" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="-0.1287" y="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="UC_VoirTrajets" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Consulter ses&lt;br&gt;trajets assignés" vertex="1">
+                    <mxGeometry height="65" width="270" x="90" y="772.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_PDF" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Télécharger l&#39;ordre&lt;br&gt;de mission (PDF)" vertex="1">
+                    <mxGeometry height="65" width="270" x="90" y="880" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-24" edge="1" parent="sys_boundary" source="UC_Statut" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-29" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.2387" y="3" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="UC_Statut" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Mettre à jour le&lt;br&gt;statut du trajet" vertex="1">
+                    <mxGeometry height="65" width="270" x="95" y="970" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_Saisie" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Saisir les données de fin&lt;br&gt;(Km arrivée, Gasoil, Remarques)" vertex="1">
+                    <mxGeometry height="65" width="270" x="95" y="1090" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_CheckDispo" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;" value="Vérifier la disponibilité&lt;br&gt;(Véhicules &amp;amp; Chauffeur)" vertex="1">
+                    <mxGeometry height="65" width="280" x="580" y="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_CheckMaint" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;" value="Bloquer si véhicule&lt;br&gt;en maintenance" vertex="1">
+                    <mxGeometry height="65" width="280" x="580" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_CalcConso" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;" value="Calculer la consommation&lt;br&gt;et le kilométrage total" vertex="1">
+                    <mxGeometry height="65" width="280" x="600" y="1025" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC_AlertMaint" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;" value="Déclencher une alerte&lt;br&gt;de maintenance" vertex="1">
+                    <mxGeometry height="65" width="280" x="590" y="1120" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_1" edge="1" parent="sys_boundary" source="UC_Assigner" style="endArrow=none;endSize=12;dashed=1;html=1;strokeColor=#000000;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=0;" target="UC_CheckDispo" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_2" edge="1" parent="sys_boundary" source="UC_Assigner" style="endArrow=none;endSize=12;dashed=1;html=1;strokeColor=#000000;exitX=1;exitY=0.65;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=0;" target="UC_CheckMaint" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_3" edge="1" parent="sys_boundary" source="UC_Saisie" style="endArrow=none;endSize=12;dashed=1;html=1;strokeColor=#000000;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=0;" target="UC_CalcConso" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="inc_4" edge="1" parent="sys_boundary" source="UC_Saisie" style="endArrow=none;endSize=12;dashed=1;html=1;strokeColor=#000000;exitX=1;exitY=0.65;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=0;" target="UC_AlertMaint" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-5" edge="1" parent="sys_boundary" source="aqddWJ4ITaupPZcUOSfZ-1" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="UC_Ressources">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-1" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;" value="ajouter" vertex="1">
+                    <mxGeometry height="50" width="80" x="175" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-2" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;" value="modifier" vertex="1">
+                    <mxGeometry height="50" width="80" x="60" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-4" edge="1" parent="sys_boundary" source="aqddWJ4ITaupPZcUOSfZ-2" style="edgeStyle=none;html=1;entryX=0.119;entryY=0.842;entryDx=0;entryDy=0;entryPerimeter=0;" target="UC_Ressources">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-3" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;" value="suprimer" vertex="1">
+                    <mxGeometry height="50" width="80" x="300" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-6" edge="1" parent="sys_boundary" source="aqddWJ4ITaupPZcUOSfZ-3" style="edgeStyle=none;html=1;entryX=0.884;entryY=0.829;entryDx=0;entryDy=0;entryPerimeter=0;" target="UC_Ressources">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-7" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Créer&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="50" width="80" x="95" y="513" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-8" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Suspendre&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="50" width="80" x="230" y="513" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-9" edge="1" parent="sys_boundary" source="aqddWJ4ITaupPZcUOSfZ-8" style="edgeStyle=none;html=1;entryX=0.7;entryY=0.987;entryDx=0;entryDy=0;entryPerimeter=0;" target="UC_Comptes">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-10" edge="1" parent="sys_boundary" source="aqddWJ4ITaupPZcUOSfZ-7" style="edgeStyle=none;html=1;entryX=0.246;entryY=0.904;entryDx=0;entryDy=0;entryPerimeter=0;" target="UC_Comptes">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-11" parent="sys_boundary" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;" value="&lt;b&gt;&lt;font style=&quot;font-size: 26px;&quot;&gt;Authentification jwt&lt;/font&gt;&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="164" width="340" x="900" y="546" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-12" edge="1" parent="sys_boundary" source="UC_Ressources" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" x="-0.0746" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-17" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="-0.4651" y="-2" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-16" edge="1" parent="sys_boundary" source="UC_Rapports" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;dashed=1;">
+                    <mxGeometry relative="1" x="0.0176" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="225" y="677.2"/>
+                        </Array>
+                        <mxPoint x="930" y="677.2" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-21" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.0149" y="2" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-23" edge="1" parent="sys_boundary" source="UC_PDF" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.627;entryY=0.951;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-28" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="-0.2529" y="2" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-25" edge="1" parent="sys_boundary" source="UC_Saisie" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.713;entryY=0.929;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;" target="aqddWJ4ITaupPZcUOSfZ-11">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="230" y="1240"/>
+                            <mxPoint x="1142.4" y="1240"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aqddWJ4ITaupPZcUOSfZ-30" connectable="0" parent="aqddWJ4ITaupPZcUOSfZ-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/span&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.1742" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="actor_admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;" value="Administrateur" vertex="1">
+                    <mxGeometry height="100" width="50" x="80" y="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="actor_chauffeur" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;" value="Chauffeur" vertex="1">
+                    <mxGeometry height="100" width="50" x="80" y="1046" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_admin_ressources" edge="1" parent="1" source="actor_admin" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Ressources" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_admin_assigner" edge="1" parent="1" source="actor_admin" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Assigner" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_admin_regles" edge="1" parent="1" source="actor_admin" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Regles" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_admin_comptes" edge="1" parent="1" source="actor_admin" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Comptes" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_admin_rapports" edge="1" parent="1" source="actor_admin" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Rapports" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_chauffeur_voir" edge="1" parent="1" source="actor_chauffeur" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_VoirTrajets" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_chauffeur_pdf" edge="1" parent="1" source="actor_chauffeur" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_PDF" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_chauffeur_statut" edge="1" parent="1" source="actor_chauffeur" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Statut" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_chauffeur_saisie" edge="1" parent="1" source="actor_chauffeur" style="endArrow=none;endFill=0;endSize=10;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="UC_Saisie" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

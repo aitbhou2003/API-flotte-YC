@@ -30,7 +30,7 @@ exports.isChauffeur = (req,res,next)=>{
         if(req.user.userRole === "chauffeur"){
             next()
         }else {
-            res.json({message:"not authorized user"})
+            res.status(403).json({message:"not authorized user"})
         }
     }catch (e){
         console.log(e)
@@ -48,7 +48,7 @@ exports.isAdmin = (req,res,next)=>{
         if(req.user.userRole==="admin"){
             next()
         }else {
-            res.json({
+            res.status(403).json({
                 message : "not authorized user"
             })
         }

@@ -73,12 +73,7 @@ exports.update = async (req, res) => {
       req.body
     );
 
-    if (!trajet) {
-      return res.status(404).json({
-        success: false,
-        message: "Trajet not found",
-      });
-    }
+    
 
     res.status(200).json({
       success: true,
@@ -86,6 +81,13 @@ exports.update = async (req, res) => {
       trajet,
     });
   } catch (error) {
+
+    if (error.statusCode) {
+      return res.status(error.statusCode).json({
+        success: false,
+        message: error.message,
+      });
+    }
 
     res.status(500).json({
       success: false,

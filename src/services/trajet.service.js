@@ -1,4 +1,5 @@
 const Trajet = require("../models/trajet.model");
+const Truck = require("../models/truck.model");
 const availabilityService = require("./availability.service");
 
 exports.createTrajet = async (data) => {
@@ -21,6 +22,23 @@ exports.getTrajetById = async (id) => {
 };
 
 exports.updateTrajet = async (id, data) => {
+  const currentTrajet =  await Trajet.findById(id);
+  if (!currentTrajet) {
+    const error = new Error("Trajet introuvable");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  const mergedata = {
+    camion: data.camion || currentTrajet.camion,
+    remorque: data.remorque || currentTrajet.remorque,
+    chauffeur: data.chauffeur || currentTrajet.chauffeur,
+    dateDebutPrevue: data.dateDebutPrevue || currentTrajet.dateDebutPrevue,
+    dateFinPrevue: data.dateFinPrevue || currentTrajet.dateFinPrevue,
+  };
+
+  await availabilityService.checkAvailability(mergedata,id)
+
   return await Trajet.findByIdAndUpdate(
     id,
     data,
@@ -45,7 +63,6 @@ exports.getTrajetsByChauffeur = async (chauffeurId) => {
     .sort({ dateDebutPrevue: 1 });
 };
 
-
 exports.demarrerTrajet = async (trajetId, chauffeurId, kilometrageDepart) => {
   const trajet = await Trajet.findOne({
     _id: trajetId,
@@ -53,7 +70,9 @@ exports.demarrerTrajet = async (trajetId, chauffeurId, kilometrageDepart) => {
   });
 
   if (!trajet) {
-    const error = new Error("Trajet introuvable ou non attribué à ce chauffeur");
+    const error = new Error(
+      "Trajet introuvable ou non attribué à ce chauffeur",
+    );
     error.statusCode = 404;
     throw error;
   }
@@ -73,14 +92,16 @@ exports.demarrerTrajet = async (trajetId, chauffeurId, kilometrageDepart) => {
   }
 
   if (camion.statut === "en_maintenance") {
-    const error = new Error("Impossible de démarrer : le camion est en maintenance");
+    const error = new Error(
+      "Impossible de démarrer : le camion est en maintenance",
+    );
     error.statusCode = 409;
     throw error;
   }
 
   if (kilometrageDepart < camion.kilometrageTotal) {
     const error = new Error(
-      `Le kilométrage de départ ne peut pas être inférieur au kilométrage actuel du camion (${camion.kilometrageTotal} km)`
+      `Le kilométrage de départ ne peut pas être inférieur au kilométrage actuel du camion (${camion.kilometrageTotal} km)`,
     );
     error.statusCode = 400;
     throw error;
@@ -97,19 +118,16 @@ exports.demarrerTrajet = async (trajetId, chauffeurId, kilometrageDepart) => {
   return trajet;
 };
 
-
-exports.terminerTrajet = async (
-  trajetId,
-  chauffeurId,
-  data
-) => {
+exports.terminerTrajet = async (trajetId, chauffeurId, data) => {
   const trajet = await Trajet.findOne({
     _id: trajetId,
     chauffeur: chauffeurId,
   });
 
   if (!trajet) {
-    const error = new Error("Trajet introuvable ou non attribué à ce chauffeur");
+    const error = new Error(
+      "Trajet introuvable ou non attribué à ce chauffeur",
+    );
     error.statusCode = 404;
     throw error;
   }
@@ -128,7 +146,7 @@ exports.terminerTrajet = async (
 
   if (data.kilometrageArrivee <= trajet.kilometrageDepart) {
     const error = new Error(
-      "Le kilométrage d'arrivée doit être supérieur au kilométrage de départ"
+      "Le kilométrage d'arrivée doit être supérieur au kilométrage de départ",
     );
     error.statusCode = 400;
     throw error;
@@ -156,8 +174,7 @@ exports.terminerTrajet = async (
 
   return {
     trajet,
-    distanceParcourue:
-      data.kilometrageArrivee - trajet.kilometrageDepart,
+    distanceParcourue: data.kilometrageArrivee - trajet.kilometrageDepart,
     consommationMoyenne:
       data.volumeGasoil > 0
         ? Number(
@@ -165,10 +182,8 @@ exports.terminerTrajet = async (
               (data.volumeGasoil /
                 (data.kilometrageArrivee - trajet.kilometrageDepart)) *
               100
-            ).toFixed(2)
+            ).toFixed(2),
           )
         : null,
   };
 };
-
-

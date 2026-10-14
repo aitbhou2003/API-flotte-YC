@@ -11,7 +11,6 @@ exports.store = async (req, res) => {
       maintenance,
     });
   } catch (error) {
-    console.log("create maintenance error:", error);
 
     res.status(500).json({
       success: false,
@@ -30,7 +29,6 @@ exports.index = async (req, res) => {
       maintenances,
     });
   } catch (error) {
-    console.log("get maintenances error:", error);
 
     res.status(500).json({
       success: false,
@@ -56,7 +54,6 @@ exports.show = async (req, res) => {
       maintenance,
     });
   } catch (error) {
-    console.log("get maintenance error:", error);
 
     res.status(500).json({
       success: false,
@@ -86,7 +83,6 @@ exports.update = async (req, res) => {
       maintenance,
     });
   } catch (error) {
-    console.log("update maintenance error:", error);
 
     res.status(500).json({
       success: false,
@@ -112,7 +108,6 @@ exports.destroy = async (req, res) => {
       message: "Maintenance deleted successfully",
     });
   } catch (error) {
-    console.log("delete maintenance error:", error);
 
     res.status(500).json({
       success: false,
@@ -132,7 +127,6 @@ exports.checkTruckMaintenance = async (req, res) => {
       ...result,
     });
   } catch (error) {
-    console.log("check truck maintenance error:", error);
 
     if (error.statusCode === 404) {
       return res.status(404).json({

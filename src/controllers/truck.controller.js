@@ -10,7 +10,6 @@ exports.store = async (req, res) => {
       truck,
     });
   } catch (error) {
-    console.log("create truck error:", error);
 
     if (error.code === 11000) {
       return res.status(409).json({
@@ -35,7 +34,6 @@ exports.index = async (req, res) => {
       trucks,
     });
   } catch (error) {
-    console.log("get trucks error:", error);
 
     res.status(500).json({
       success: false,
@@ -59,7 +57,6 @@ exports.show = async (req, res) => {
       truck,
     });
   } catch (error) {
-    console.log("get truck error:", error);
 
     res.status(500).json({
       success: false,
@@ -88,7 +85,6 @@ exports.update = async (req, res) => {
       truck,
     });
   } catch (error) {
-    console.log("update truck error:", error);
 
     if (error.code === 11000) {
       return res.status(409).json({
@@ -120,7 +116,6 @@ exports.destroy = async (req, res) => {
       message: "Truck deleted successfully",
     });
   } catch (error) {
-    console.log("delete truck error:", error);
 
     res.status(500).json({
       success: false,

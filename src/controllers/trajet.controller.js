@@ -10,7 +10,6 @@ exports.store = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.log("create trajet error:", error);
 
     if (error.statusCode === 404 || error.statusCode === 409) {
       return res.status(error.statusCode).json({
@@ -35,7 +34,6 @@ exports.index = async (req, res) => {
       trajets,
     });
   } catch (error) {
-    console.log("get trajets error:", error);
 
     res.status(500).json({
       success: false,
@@ -60,7 +58,6 @@ exports.show = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.log("get trajet error:", error);
 
     res.status(500).json({
       success: false,
@@ -89,7 +86,6 @@ exports.update = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.log("update trajet error:", error);
 
     res.status(500).json({
       success: false,
@@ -114,7 +110,6 @@ exports.destroy = async (req, res) => {
       message: "Trajet deleted successfully",
     });
   } catch (error) {
-    console.log("delete trajet error:", error);
 
     res.status(500).json({
       success: false,
@@ -134,7 +129,6 @@ exports.mesTrajets = async (req, res) => {
       trajets,
     });
   } catch (error) {
-    console.error("mes trajets error:", error);
 
     return res.status(500).json({
       success: false,
@@ -158,7 +152,6 @@ exports.demarrer = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.error("demarrer trajet error:", error);
 
     return res.status(error.statusCode || 500).json({
       success: false,
@@ -184,7 +177,6 @@ exports.terminer = async (req, res) => {
       ...resultat,
     });
   } catch (error) {
-    console.error("terminer trajet error:", error);
 
     return res.status(error.statusCode || 500).json({
       success: false,

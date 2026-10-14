@@ -10,7 +10,6 @@ exports.store = async (req, res) => {
       remorque,
     });
   } catch (error) {
-    console.log("create remorque error:", error);
 
     if (error.code === 11000) {
       return res.status(409).json({
@@ -35,7 +34,6 @@ exports.index = async (req, res) => {
       remorques,
     });
   } catch (error) {
-    console.log("get remorques error:", error);
 
     res.status(500).json({
       success: false,
@@ -62,7 +60,6 @@ exports.show = async (req, res) => {
       remorque,
     });
   } catch (error) {
-    console.log("get remorque error:", error);
 
     res.status(500).json({
       success: false,
@@ -91,7 +88,6 @@ exports.update = async (req, res) => {
       remorque,
     });
   } catch (error) {
-    console.log("update remorque error:", error);
 
     if (error.code === 11000) {
       return res.status(409).json({
@@ -125,7 +121,6 @@ exports.destroy = async (req, res) => {
       message: "Remorque deleted successfully",
     });
   } catch (error) {
-    console.log("delete remorque error:", error);
 
     res.status(500).json({
       success: false,

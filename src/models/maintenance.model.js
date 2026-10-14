@@ -40,7 +40,7 @@ const maintenanceSchema = new mongoose.Schema(
       default: Date.now,
     },
 
-    dateResolution: {
+    dateResolution: { 
       type: Date,
     },
   },

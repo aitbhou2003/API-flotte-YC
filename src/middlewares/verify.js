@@ -25,12 +25,12 @@ exports.verifyToken = (req,res,next)=>{
 
 exports.isChauffeur = (req,res,next)=>{
     try{
-        console.log(req.user)
-        const {role} = req.user
-        if(role === "chauffeur"){
+        // console.log(req.user)
+        // const {role} = req.user
+        if(req.user.userRole === "chauffeur"){
             next()
         }else {
-            res.json({message:"not authorized user"})
+            res.status(403).json({message:"not authorized user"})
         }
     }catch (e){
         console.log(e)
@@ -48,7 +48,7 @@ exports.isAdmin = (req,res,next)=>{
         if(req.user.userRole==="admin"){
             next()
         }else {
-            res.json({
+            res.status(403).json({
                 message : "not authorized user"
             })
         }

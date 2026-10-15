@@ -10,7 +10,6 @@ exports.store = async (req, res) => {
       rule,
     });
   } catch (error) {
-    console.log("create maintenance rule error:", error);
 
     res.status(500).json({
       success: false,
@@ -29,7 +28,6 @@ exports.index = async (req, res) => {
       rules,
     });
   } catch (error) {
-    console.log("get maintenance rules error:", error);
 
     res.status(500).json({
       success: false,
@@ -55,7 +53,6 @@ exports.show = async (req, res) => {
       rule,
     });
   } catch (error) {
-    console.log("get maintenance rule error:", error);
 
     res.status(500).json({
       success: false,
@@ -85,7 +82,6 @@ exports.update = async (req, res) => {
       rule,
     });
   } catch (error) {
-    console.log("update maintenance rule error:", error);
 
     res.status(500).json({
       success: false,
@@ -111,7 +107,6 @@ exports.destroy = async (req, res) => {
       message: "Maintenance rule deleted successfully",
     });
   } catch (error) {
-    console.log("delete maintenance rule error:", error);
 
     res.status(500).json({
       success: false,

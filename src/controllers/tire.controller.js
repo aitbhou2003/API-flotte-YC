@@ -10,7 +10,6 @@ exports.store = async (req, res) => {
       tire,
     });
   } catch (error) {
-    console.log("create tire error:", error);
 
     if (error.statusCode === 404) {
       return res.status(404).json({

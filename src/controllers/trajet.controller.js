@@ -10,7 +10,13 @@ exports.store = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.log("create trajet error:", error);
+
+    if (error.statusCode === 404 || error.statusCode === 409) {
+      return res.status(error.statusCode).json({
+        success: false,
+        message: error.message,
+      });
+    }
 
     res.status(500).json({
       success: false,
@@ -28,7 +34,6 @@ exports.index = async (req, res) => {
       trajets,
     });
   } catch (error) {
-    console.log("get trajets error:", error);
 
     res.status(500).json({
       success: false,
@@ -53,7 +58,6 @@ exports.show = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.log("get trajet error:", error);
 
     res.status(500).json({
       success: false,
@@ -69,12 +73,7 @@ exports.update = async (req, res) => {
       req.body
     );
 
-    if (!trajet) {
-      return res.status(404).json({
-        success: false,
-        message: "Trajet not found",
-      });
-    }
+    
 
     res.status(200).json({
       success: true,
@@ -82,7 +81,13 @@ exports.update = async (req, res) => {
       trajet,
     });
   } catch (error) {
-    console.log("update trajet error:", error);
+
+    if (error.statusCode) {
+      return res.status(error.statusCode).json({
+        success: false,
+        message: error.message,
+      });
+    }
 
     res.status(500).json({
       success: false,
@@ -107,7 +112,6 @@ exports.destroy = async (req, res) => {
       message: "Trajet deleted successfully",
     });
   } catch (error) {
-    console.log("delete trajet error:", error);
 
     res.status(500).json({
       success: false,
@@ -115,3 +119,73 @@ exports.destroy = async (req, res) => {
     });
   }
 };
+
+exports.mesTrajets = async (req, res) => {
+  try {
+    const trajets = await trajetService.getTrajetsByChauffeur(
+      req.user.userId
+    );
+
+    return res.status(200).json({
+      success: true,
+      trajets,
+    });
+  } catch (error) {
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+
+exports.demarrer = async (req, res) => {
+  try {
+    const trajet = await trajetService.demarrerTrajet(
+      req.params.id,
+      req.user.userId,
+      req.body.kilometrageDepart
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Trajet démarré avec succès",
+      trajet,
+    });
+  } catch (error) {
+
+    return res.status(error.statusCode || 500).json({
+      success: false,
+      message: error.statusCode
+        ? error.message
+        : "Internal server error",
+    });
+  }
+};
+
+
+exports.terminer = async (req, res) => {
+  try {
+    const resultat = await trajetService.terminerTrajet(
+      req.params.id,
+      req.user.userId,
+      req.body
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Trajet terminé avec succès",
+      ...resultat,
+    });
+  } catch (error) {
+
+    return res.status(error.statusCode || 500).json({
+      success: false,
+      message: error.statusCode
+        ? error.message
+        : "Internal server error",
+    });
+  }
+};
+

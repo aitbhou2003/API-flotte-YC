@@ -75,7 +75,20 @@ const updateTrajetSchema = Joi.object({
   remarquesVehicule: Joi.string().trim(),
 }).min(1);
 
+const demarrerTrajetSchema = Joi.object({
+  kilometrageDepart: Joi.number().min(0).required(),
+});
+
+const terminerTrajetSchema = Joi.object({
+  kilometrageArrivee: Joi.number().min(0).required(),
+  volumeGasoil: Joi.number().min(0).required(),
+  coutGasoil: Joi.number().min(0).required(),
+  remarquesVehicule: Joi.string().trim().max(1000).allow(""),
+});
+
 module.exports = {
   createTrajetSchema,
   updateTrajetSchema,
+  demarrerTrajetSchema,
+  terminerTrajetSchema
 };

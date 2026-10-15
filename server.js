@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./src/config/db');
 const { setupSwagger } = require('./src/config/swagger');
+const errorHandler = require("./src/middlewares/errorHandler")
 
 const app = express();
 

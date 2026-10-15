@@ -6,7 +6,14 @@ exports.store = async (req, res) => {
   try {
     // console.log(req.body); return;
     const { firstName, lastName, email, password, role } = req.body;    
-    
+
+    const checkUser = User.find({email : email})
+
+    if(checkUser){
+      return res.status(409).json({
+        message : "user is exist"
+      })
+    }
 
     const encryptPass = await hashPass(password);
     
@@ -18,24 +25,24 @@ exports.store = async (req, res) => {
       role,
     })
 
-    const token = generateToken(user._id, user.role);
 
     res.status(201).json({
       success :true,
       message : "user created with succes",
-      token : token
+
     })
   } catch (error) {
-    console.log("store user error : "+error);
+
+    return res.status(500).json({
+      message : "internal server error"
+    })
   }
 };
 
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    // console.log(email);
     const user = await User.findOne({ email: email });
-    // console.log(user._id);
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -66,7 +73,6 @@ exports.login = async (req, res) => {
       token : token
     });
   } catch (error) {
-    // console.log(error);
     return res.status(500).json({
       success: false,
       message: "Internal server error",

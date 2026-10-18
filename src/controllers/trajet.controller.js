@@ -1,4 +1,5 @@
 const trajetService = require("../services/trajet.service");
+const pdfService = require("../services/pdf.service");
 
 exports.store = async (req, res) => {
   try {
@@ -189,3 +190,30 @@ exports.terminer = async (req, res) => {
   }
 };
 
+
+exports.telechargerPDF = async (req, res, next) => {
+  try {
+    const trajet = await trajetService.getTrajetById(req.params.id);
+
+    if (!trajet) {
+      return res.status(404).json({
+        success: false,
+        message: "Trajet introuvable",
+      });
+    }
+
+    if (
+      req.user.userRole === "chauffeur" &&
+      trajet.chauffeur._id.toString() !== req.user.userId
+    ) {
+      return res.status(403).json({
+        success: false,
+        message: "Accès refusé : vous ne pouvez télécharger que vos propres ordres de mission",
+      });
+    }
+
+    pdfService.genererOrdreMission(trajet, res);
+  } catch (error) {
+    next(error);
+  }
+};

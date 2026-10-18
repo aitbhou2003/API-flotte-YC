@@ -1987,6 +1987,42 @@ L'API utilise des tokens **JWT**. Après connexion via \`POST /api/login\`, tran
         },
       },
     },
+    "/api/trajets/{id}/pdf": {
+      get: {
+        tags: ["Trajets"],
+        summary: "Télécharger l'ordre de mission en PDF (Chauffeur ou Admin)",
+        description:
+          "Génère et télécharge le document PDF officiel de l’ordre de mission.",
+        security: [{ bearerAuth: [] }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "string" },
+            description: "ID du trajet",
+          },
+        ],
+        responses: {
+          200: {
+            description: "Fichier PDF généré",
+            content: {
+              "application/pdf": {
+                schema: {
+                  type: "string",
+                  format: "binary",
+                },
+              },
+            },
+          },
+          403: {
+            description:
+              "Accès refusé : ce trajet appartient à un autre chauffeur",
+          },
+          404: { description: "Trajet non trouvé" },
+        },
+      },
+    },
   },
 };
 

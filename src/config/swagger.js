@@ -1878,6 +1878,115 @@ L'API utilise des tokens **JWT**. Après connexion via \`POST /api/login\`, tran
         },
       },
     },
+    "/api/rapports/consommation": {
+      get: {
+        tags: ["Rapports & Statistiques"],
+        summary: "Rapport de consommation de carburant par camion (Admin)",
+        security: [{ bearerAuth: [] }],
+        responses: {
+          200: {
+            description: "Rapport généré avec succès",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    success: { type: "boolean", example: true },
+                    rapport: {
+                      type: "array",
+                      items: {
+                        type: "object",
+                        properties: {
+                          camionId: { type: "string" },
+                          immatriculation: {
+                            type: "string",
+                            example: "12345-A-26",
+                          },
+                          marque: { type: "string", example: "Volvo" },
+                          nombreTrajets: { type: "number", example: 5 },
+                          totalDistanceKm: { type: "number", example: 1250 },
+                          totalVolumeGasoilLitres: {
+                            type: "number",
+                            example: 350,
+                          },
+                          totalCoutGasoilDH: { type: "number", example: 4550 },
+                          consommationMoyenneL100km: {
+                            type: "number",
+                            example: 28,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          403: { description: "Accès réservé aux administrateurs" },
+        },
+      },
+    },
+    "/api/rapports/kilometrage": {
+      get: {
+        tags: ["Rapports & Statistiques"],
+        summary: "Rapport du kilométrage total de la flotte (Admin)",
+        security: [{ bearerAuth: [] }],
+        responses: {
+          200: {
+            description: "Rapport généré avec succès",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    success: { type: "boolean", example: true },
+                    rapport: {
+                      type: "array",
+                      items: {
+                        type: "object",
+                        properties: {
+                          _id: { type: "string" },
+                          immatriculation: { type: "string" },
+                          marque: { type: "string" },
+                          kilometrageTotal: { type: "number" },
+                          statut: { type: "string" },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          403: { description: "Accès réservé aux administrateurs" },
+        },
+      },
+    },
+    "/api/rapports/alertes-maintenance": {
+      get: {
+        tags: ["Rapports & Statistiques"],
+        summary: "Rapport des alertes de maintenance actives (Admin)",
+        security: [{ bearerAuth: [] }],
+        responses: {
+          200: {
+            description: "Rapport généré avec succès",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    success: { type: "boolean", example: true },
+                    totalAlertes: { type: "number", example: 2 },
+                    alertes: { type: "array", items: { type: "object" } },
+                  },
+                },
+              },
+            },
+          },
+          403: { description: "Accès réservé aux administrateurs" },
+        },
+      },
+    },
   },
 };
 

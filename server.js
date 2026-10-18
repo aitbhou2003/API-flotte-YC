@@ -8,6 +8,9 @@ const errorHandler = require("./src/middlewares/errorHandler")
 
 const app = express();
 
+app.use(errorHandler);
+
+
 
 app.use(express.json()); 
 const userRouter = require('./src/routes/user.router')
@@ -21,7 +24,6 @@ const trajetRouter = require("./src/routes/trajet.router");
 
 
 app.use(cors()); 
-app.use(errorHandler);
 
 setupSwagger(app);
 

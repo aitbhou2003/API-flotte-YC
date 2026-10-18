@@ -8,7 +8,7 @@ const {
   createTrajetSchema,
   updateTrajetSchema,
   demarrerTrajetSchema,
-  terminerTrajetSchema
+  terminerTrajetSchema,
 } = require("../validators/trajet.validator");
 
 router.post(
@@ -16,21 +16,16 @@ router.post(
   verify.verifyToken,
   verify.isAdmin,
   validate(createTrajetSchema),
-  Trajet.store
+  Trajet.store,
 );
 
-router.get(
-  "/trajets",
-  verify.verifyToken,
-  verify.isAdmin,
-  Trajet.index
-);
+router.get("/trajets", verify.verifyToken, verify.isAdmin, Trajet.index);
 
 router.get(
   "/mes-trajets",
   verify.verifyToken,
   verify.isChauffeur,
-  Trajet.mesTrajets
+  Trajet.mesTrajets,
 );
 
 router.patch(
@@ -38,7 +33,7 @@ router.patch(
   verify.verifyToken,
   verify.isChauffeur,
   validate(demarrerTrajetSchema),
-  Trajet.demarrer
+  Trajet.demarrer,
 );
 
 router.patch(
@@ -46,29 +41,30 @@ router.patch(
   verify.verifyToken,
   verify.isChauffeur,
   validate(terminerTrajetSchema),
-  Trajet.terminer
+  Trajet.terminer,
 );
 
-router.get(
-  "/trajets/:id",
-  verify.verifyToken,
-  verify.isAdmin,
-  Trajet.show
-);
+router.get("/trajets/:id", verify.verifyToken, verify.isAdmin, Trajet.show);
 
 router.put(
   "/trajets/:id",
   verify.verifyToken,
   verify.isAdmin,
   validate(updateTrajetSchema),
-  Trajet.update
+  Trajet.update,
 );
 
 router.delete(
   "/trajets/:id",
   verify.verifyToken,
   verify.isAdmin,
-  Trajet.destroy
+  Trajet.destroy,
+);
+
+router.get(
+  "/trajets/:id/pdf",
+  verify.verifyToken,
+  trajetController.telechargerPDF,
 );
 
 module.exports = { router };

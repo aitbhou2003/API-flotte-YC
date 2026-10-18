@@ -20,6 +20,9 @@ const tireRouter = require("./src/routes/tire.router");
 const maintenanceRuleRouter = require("./src/routes/maintenanceRule.router");
 const maintenanceRouter = require("./src/routes/maintenance.router");
 const trajetRouter = require("./src/routes/trajet.router");
+const rapportRouter = require("./src/routes/rapport.router");
+
+
 
 
 
@@ -35,6 +38,7 @@ app.use("/api", tireRouter.router);
 app.use("/api", maintenanceRuleRouter.router);
 app.use("/api", maintenanceRouter.router);
 app.use("/api", trajetRouter.router);
+app.use("/api", rapportRouter.router);
 
 
 

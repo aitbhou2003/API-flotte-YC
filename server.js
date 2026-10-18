@@ -8,7 +8,6 @@ const errorHandler = require("./src/middlewares/errorHandler")
 
 const app = express();
 
-app.use(errorHandler);
 
 
 
@@ -24,7 +23,7 @@ const rapportRouter = require("./src/routes/rapport.router");
 
 
 
-
+app.use(errorHandler);
 
 app.use(cors()); 
 

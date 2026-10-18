@@ -7,7 +7,7 @@ exports.store = async (req, res) => {
     // console.log(req.body); return;
     const { firstName, lastName, email, password, role } = req.body;    
 
-    const checkUser = User.find({email : email})
+    const checkUser = await User.findOne({email : email})
 
     if(checkUser){
       return res.status(409).json({

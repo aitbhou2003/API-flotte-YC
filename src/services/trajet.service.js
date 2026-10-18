@@ -1,6 +1,10 @@
 const Trajet = require("../models/trajet.model");
 const Truck = require("../models/truck.model");
+const Remorque = require("../models/remorque.model"); 
 const availabilityService = require("./availability.service");
+const maintenanceService = require("./maintenance.service"); // 👈 AJOUTE CETTE LIGNE
+
+  
 
 exports.createTrajet = async (data) => {
   await availabilityService.checkAvailability(data);
@@ -114,6 +118,9 @@ exports.demarrerTrajet = async (trajetId, chauffeurId, kilometrageDepart) => {
 
   camion.statut = "en_trajet";
   await camion.save();
+  if (trajet.remorque) {
+    await Remorque.findByIdAndUpdate(trajet.remorque, { statut: "en_trajet" });
+  }
 
   return trajet;
 };
@@ -172,18 +179,27 @@ exports.terminerTrajet = async (trajetId, chauffeurId, data) => {
   camion.statut = "disponible";
   await camion.save();
 
+  const distanceParcourue = data.kilometrageArrivee - trajet.kilometrageDepart;
+
+  if (trajet.remorque) {
+    const remorque = await Remorque.findById(trajet.remorque);
+    if (remorque) {
+      remorque.kilometrageTotal = (remorque.kilometrageTotal || 0) + distanceParcourue;
+      remorque.statut = "disponible";
+      await remorque.save();
+    }
+  }
+
+  await maintenanceService.checkTruckMaintenance(camion._id);
+
+  const consommationMoyenne =
+    data.volumeGasoil > 0 && distanceParcourue > 0
+      ? Number(((data.volumeGasoil / distanceParcourue) * 100).toFixed(2))
+      : null;
+
   return {
     trajet,
-    distanceParcourue: data.kilometrageArrivee - trajet.kilometrageDepart,
-    consommationMoyenne:
-      data.volumeGasoil > 0
-        ? Number(
-            (
-              (data.volumeGasoil /
-                (data.kilometrageArrivee - trajet.kilometrageDepart)) *
-              100
-            ).toFixed(2),
-          )
-        : null,
+    distanceParcourue,
+    consommationMoyenne,
   };
 };

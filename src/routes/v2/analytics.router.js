@@ -19,4 +19,11 @@ router.get(
     analytics.getTiresHealthMatrix
 )
 
+router.get(
+    "/v2/analytics/trips/financial-esg",
+    verify.verifyToken,
+    verify.isAdmin,
+    analytics.financialEsg
+)
+
 module.exports = { router };

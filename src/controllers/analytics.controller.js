@@ -29,3 +29,17 @@ exports.getTiresHealthMatrix = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.financialEsg = async (req, res, next) => {
+  try {
+    const data = await analytics.financialEsg();
+
+    return res.status(200).json({
+      success: true,
+      message: "ESG calculer avec success",
+      data: data,
+    });
+  } catch (error) {
+    next(error)
+  }
+};

@@ -121,3 +121,57 @@ exports.getTiresHealthMatrix = async () => {
 
   return result;
 };
+
+exports.financialEsg = async () => {
+  const result = await Trajet.aggregate([
+    {
+      $match: {
+        statut: "termine",
+      },
+    },
+    {
+      $group: {
+        _id: {
+          siteDepart: "$siteDepart",
+          siteArrivee: "$siteArrivee",
+        },
+        totalTrajets: { $sum: 1 },
+        totalGasoilLitres: { $sum: "$volumeGasoil" },
+        totalCoutGasoilMAD: { $sum: "$coutGasoil" },
+        totalDistanceKm: {
+          $sum: { $subtract: ["$kilometrageArrivee", "$kilometrageDepart"] },
+        },
+      },
+    },
+    {
+      $addFields: {
+        emissionsCO2Tonnes: {
+          $round: [
+            { $divide: [{ $multiply: ["$totalGasoilLitres", 2.68] }, 1000] },
+            2,
+          ],
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        ligne: {
+          $concat: ["$_id.siteDepart", " -> ", "$_id.siteArrivee"],
+        },
+        siteDepart: "$_id.siteDepart",
+        siteArrivee: "$_id.siteArrivee",
+        totalTrajets: 1,
+        totalDistanceKm: 1,
+        totalGasoilLitres: 1,
+        totalCoutGasoilMAD: 1,
+        emissionsCO2Tonnes: 1,
+      },
+    },
+    {
+      $sort: { emissionsCO2Tonnes: -1 },
+    },
+  ]);
+
+  return result;
+};

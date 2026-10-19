@@ -20,6 +20,25 @@ const tireSchema = new mongoose.Schema(
       min: 0,
       default: 0,
     },
+    statut: {
+      type: String,
+      enum: ["actif", "remplace", "en_reparation"],
+      default: "actif",
+    },
+    isArchived: {
+      type: Boolean,
+      default: false,
+    },
+    seuilKm: {
+      type: Number,
+      default: 80000,
+      min: 0,
+    },
+    profondeurSculpture: {
+      type: Number,
+      default: 8,
+      min: 0,
+    },
   },
   {
     timestamps: true,

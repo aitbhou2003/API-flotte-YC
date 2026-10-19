@@ -1,5 +1,7 @@
 const Trajet = require("../models/trajet.model");
 const Tire = require("../models/tire.model");
+const Truck = require("../models/truck.model");
+const { any } = require("joi");
 
 exports.getEcoPerformance = async () => {
   const result = await Trajet.aggregate([
@@ -170,6 +172,67 @@ exports.financialEsg = async () => {
     },
     {
       $sort: { emissionsCO2Tonnes: -1 },
+    },
+  ]);
+
+  return result;
+};
+
+exports.tauxUtilisation = async () => {
+  const result = await Truck.aggregate([
+    {
+      $group: {
+        _id: null,
+        totalCamions: { $sum: 1 },
+        camionsEnMission: {
+          $sum: { $cond: [{ $eq: ["$statut", "en_trajet"] }, 1, 0] },
+        },
+        camionsDisponibles: {
+          $sum: { $cond: [{ $eq: ["$statut", "disponible"] }, 1, 0] },
+        },
+        camionsEnMaintenance: {
+          $sum: { $cond: [{ $eq: ["$statut", "en_maintenance"] }, 1, 0] },
+        },
+      },
+    },
+    {
+      $addFields: {
+        denominateur: {
+          $sum: ["$camionsDisponibles", "$camionsEnMaintenance"],
+        },
+      },
+    },
+    {
+      $addFields: {
+        tauxUtilisationPourcentage: {
+          $cond: [
+            { $gt: ["$denominateur", 0] },
+            {
+              $round: [
+                {
+                  $multiply: [
+                    { $divide: ["$camionsEnMission", "$denominateur"] },
+                    100,
+                  ],
+                },
+                2,
+              ],
+            },
+            0,
+          ],
+        },
+      },
+    },
+
+    {
+      $project: {
+        _id: 0,
+        totalCamions: "$totalCamions",
+        camionsEnMission: "$camionsEnMission",
+        camionsDisponibles: "$camionsDisponibles",
+        camionsEnMaintenance: "$camionsEnMaintenance",
+        tauxUtilisationPourcentage: "$tauxUtilisationPourcentage",
+      },
     },
   ]);
 

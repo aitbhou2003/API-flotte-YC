@@ -43,3 +43,18 @@ exports.financialEsg = async (req, res, next) => {
     next(error)
   }
 };
+
+
+exports.tauxUtilisation = async (req, res, next) => {
+  try {
+    const data = await analytics.tauxUtilisation;
+
+    return res.status(200).json({
+      success: true,
+      message: "taux d'utilisation calculer avec success",
+      data: data,
+    });
+  } catch (error) {
+    next(error)
+  }
+};

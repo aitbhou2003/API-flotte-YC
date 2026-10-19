@@ -26,4 +26,11 @@ router.get(
     analytics.financialEsg
 )
 
+router.get(
+    "/v2/analytics/fleet/utilization-trends",
+    verify.verifyToken,
+    verify.isAdmin,
+    analytics.tauxUtilisation
+)
+
 module.exports = { router };

@@ -11,4 +11,12 @@ router.get(
   analytics.getEcoPerformance,
 );
 
+
+router.get(
+    "/v2/analytics/tires/health-matrix",
+    verify.verifyToken,
+    verify.isAdmin,
+    analytics.getTiresHealthMatrix
+)
+
 module.exports = { router };

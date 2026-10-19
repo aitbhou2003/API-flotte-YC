@@ -20,6 +20,7 @@ const maintenanceRuleRouter = require("./src/routes/maintenanceRule.router");
 const maintenanceRouter = require("./src/routes/maintenance.router");
 const trajetRouter = require("./src/routes/trajet.router");
 const rapportRouter = require("./src/routes/rapport.router");
+const analyticsRouter = require("./src/routes/v2/analytics.router")
 
 
 
@@ -30,7 +31,7 @@ app.use(cors());
 setupSwagger(app);
 
 connectDB();
-app.use("/api",userRouter.router)
+app.use("/api", userRouter.router)
 app.use("/api", truckRouter.router);
 app.use("/api", remorqueRouter.router);
 app.use("/api", tireRouter.router);
@@ -38,6 +39,7 @@ app.use("/api", maintenanceRuleRouter.router);
 app.use("/api", maintenanceRouter.router);
 app.use("/api", trajetRouter.router);
 app.use("/api", rapportRouter.router);
+app.use("/api", analyticsRouter.router);
 
 
 

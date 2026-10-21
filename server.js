@@ -5,10 +5,11 @@ const cors = require('cors');
 const connectDB = require('./src/config/db');
 const { setupSwagger } = require('./src/config/swagger');
 const errorHandler = require("./src/middlewares/errorHandler")
+const {globalLimiter} = require("./src/middlewares/rateLimit.middleware");
 
 const app = express();
 
-
+app.use("/api", globalLimiter);
 
 
 app.use(express.json()); 
@@ -20,7 +21,8 @@ const maintenanceRuleRouter = require("./src/routes/maintenanceRule.router");
 const maintenanceRouter = require("./src/routes/maintenance.router");
 const trajetRouter = require("./src/routes/trajet.router");
 const rapportRouter = require("./src/routes/rapport.router");
-const analyticsRouter = require("./src/routes/v2/analytics.router")
+const analyticsRouter = require("./src/routes/v2/analytics.router");
+const trajetV2Router = require("./src/routes/v2/trajet.router");
 
 
 
@@ -40,6 +42,7 @@ app.use("/api", maintenanceRouter.router);
 app.use("/api", trajetRouter.router);
 app.use("/api", rapportRouter.router);
 app.use("/api", analyticsRouter.router);
+app.use("/api", trajetV2Router.router);
 
 
 

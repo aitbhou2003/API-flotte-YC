@@ -5,11 +5,23 @@ const cors = require('cors');
 const connectDB = require('./src/config/db');
 const { setupSwagger } = require('./src/config/swagger');
 const errorHandler = require("./src/middlewares/errorHandler")
-const {globalLimiter} = require("./src/middlewares/rateLimit.middleware");
+const {
+  authLimiter,
+  standardApiLimiter,
+  analyticsLimiter,
+} = require("./src/middlewares/rateLimiter");
 
 const app = express();
 
-app.use("/api", globalLimiter);
+app.set("trust proxy", 1);
+
+app.use("/api", standardApiLimiter);
+app.use("/api/v2/analytics", analyticsLimiter);
+app.use("/api/login", authLimiter);
+
+  
+
+
 
 
 app.use(express.json()); 

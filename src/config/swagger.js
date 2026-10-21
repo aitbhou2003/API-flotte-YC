@@ -59,6 +59,11 @@ L'API utilise des tokens **JWT**. Après connexion via \`POST /api/login\`, tran
       description:
         "Rapports de consommation, kilométrage et alertes de maintenance (Admin)",
     },
+    {
+      name: "Cloud Storage MinIO (v2)",
+      description:
+        "Gestion des Ordres de Mission via Object Storage S3 et Presigned URLs temporaires",
+    },
   ],
   components: {
     securitySchemes: {
@@ -2020,6 +2025,78 @@ L'API utilise des tokens **JWT**. Après connexion via \`POST /api/login\`, tran
               "Accès refusé : ce trajet appartient à un autre chauffeur",
           },
           404: { description: "Trajet non trouvé" },
+        },
+      },
+    },
+    "/api/v2/trips/{id}/mission-order-url": {
+      get: {
+        tags: ["Cloud Storage MinIO (v2)"],
+        summary:
+          "Obtenir une Presigned URL MinIO/S3 pour télécharger l'Ordre de Mission (v2)",
+        description: `
+Génère et téléverse l'Ordre de Mission en PDF sur le bucket S3 privé MinIO (**fleettrack-documents**) si ce n'est pas déjà fait.
+
+Retourne ensuite une **Presigned URL cryptographique sécurisée (HMAC)** d'une durée de validité restreinte à **15 minutes (TTL = 900s)**.
+
+Le client télécharge le document directement depuis MinIO sans transiter par l'API Node.js.
+        `,
+        security: [{ bearerAuth: [] }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "string" },
+            description: "Identifiant MongoDB du trajet",
+            example: "67142a78b543c19b4e123456",
+          },
+        ],
+        responses: {
+          200: {
+            description: "Presigned URL générée avec succès",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    success: { type: "boolean", example: true },
+                    message: {
+                      type: "string",
+                      example:
+                        "Presigned URL générée avec succès (valable 15 minutes)",
+                    },
+                    s3Key: {
+                      type: "string",
+                      example: "orders/2026/TRP-67142a78b543c19b4e123456.pdf",
+                    },
+                    expiresIn: { type: "string", example: "15 minutes" },
+                    downloadUrl: {
+                      type: "string",
+                      example:
+                        "http://localhost:9000/fleettrack-documents/orders/2026/TRP-67142a78b543c19b4e123456.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minioadmin...",
+                    },
+                  },
+                },
+              },
+            },
+          },
+          403: {
+            description:
+              "Accès refusé : vous ne pouvez pas accéder à l'ordre de mission d'un autre chauffeur",
+            content: {
+              "application/json": {
+                schema: { $ref: "#/components/schemas/ErrorResponse" },
+              },
+            },
+          },
+          404: {
+            description: "Trajet introuvable",
+            content: {
+              "application/json": {
+                schema: { $ref: "#/components/schemas/ErrorResponse" },
+              },
+            },
+          },
         },
       },
     },

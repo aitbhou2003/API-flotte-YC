@@ -1,5 +1,4 @@
 services:
-
   api:
     build:
       context: .
@@ -45,9 +44,31 @@ services:
     networks:
       - flotte-network
 
+  minio:
+    image: ghcr.io/librefs/librefs:latest
+    container_name: flotte-minio
+    restart: unless-stopped
+
+    command: server /data --console-address ":9001"
+
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+    volumes:
+      - minio_data:/data
+
+    networks:
+      - flotte-network
+
 networks:
   flotte-network:
     driver: bridge
 
 volumes:
   mongodb_data:
+  minio_data:

@@ -2,7 +2,7 @@ const Trajet = require("../models/trajet.model");
 const Truck = require("../models/truck.model");
 const Remorque = require("../models/remorque.model"); 
 const availabilityService = require("./availability.service");
-const maintenanceService = require("./maintenance.service"); // 👈 AJOUTE CETTE LIGNE
+const maintenanceService = require("./maintenance.service");
 
   
 
@@ -105,7 +105,7 @@ exports.demarrerTrajet = async (trajetId, chauffeurId, kilometrageDepart) => {
 
   if (kilometrageDepart < camion.kilometrageTotal) {
     const error = new Error(
-      `Le kilométrage de départ ne peut pas être inférieur au kilométrage actuel du camion (${camion.kilometrageTotal} km)`,
+      `Le kilométrage de départ ne peut pas être inférieur au kilométrage actuel du camion`,
     );
     error.statusCode = 400;
     throw error;

@@ -61,10 +61,6 @@ router.delete(
   Trajet.destroy,
 );
 
-router.get(
-  "/trajets/:id/pdf",
-  verify.verifyToken,
-  Trajet.telechargerPDF,
-);
+
 
 module.exports = { router };

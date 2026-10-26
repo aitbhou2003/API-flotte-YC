@@ -78,10 +78,14 @@ const trajetSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    s3Key: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Trajet = mongoose.model("Trajet", trajetSchema);

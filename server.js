@@ -5,8 +5,21 @@ const cors = require('cors');
 const connectDB = require('./src/config/db');
 const { setupSwagger } = require('./src/config/swagger');
 const errorHandler = require("./src/middlewares/errorHandler")
+const {
+  authLimiter,
+  standardApiLimiter,
+  analyticsLimiter,
+} = require("./src/middlewares/rateLimiter");
 
 const app = express();
+
+app.set("trust proxy", 1);
+
+app.use("/api", standardApiLimiter);
+app.use("/api/v2/analytics", analyticsLimiter);
+app.use("/api/login", authLimiter);
+
+  
 
 
 
@@ -20,6 +33,8 @@ const maintenanceRuleRouter = require("./src/routes/maintenanceRule.router");
 const maintenanceRouter = require("./src/routes/maintenance.router");
 const trajetRouter = require("./src/routes/trajet.router");
 const rapportRouter = require("./src/routes/rapport.router");
+const analyticsRouter = require("./src/routes/v2/analytics.router");
+const trajetV2Router = require("./src/routes/v2/trajet.router");
 
 
 
@@ -30,7 +45,7 @@ app.use(cors());
 setupSwagger(app);
 
 connectDB();
-app.use("/api",userRouter.router)
+app.use("/api", userRouter.router)
 app.use("/api", truckRouter.router);
 app.use("/api", remorqueRouter.router);
 app.use("/api", tireRouter.router);
@@ -38,6 +53,8 @@ app.use("/api", maintenanceRuleRouter.router);
 app.use("/api", maintenanceRouter.router);
 app.use("/api", trajetRouter.router);
 app.use("/api", rapportRouter.router);
+app.use("/api", analyticsRouter.router);
+app.use("/api", trajetV2Router.router);
 
 
 

@@ -2,7 +2,6 @@
 const truckService = require("../../src/services/truck.service");
 const truckController = require("../../src/controllers/truck.controller");
 
-// Mock the service: no real database queries will be executed.
 jest.mock("../../src/services/truck.service");
 
 describe("Truck Controller - index", () => {
